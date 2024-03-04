@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Textarea.css"; // Import the custom CSS file
 
 function Textarea(props) {
   let [text, setText] = useState("");
