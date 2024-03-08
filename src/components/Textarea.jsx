@@ -33,6 +33,18 @@ function Textarea(props) {
     let newtext = e.target.value;
     setText(newtext);
   };
+  // Copy Text
+  let handleCopyText=()=>{
+    let text=document.getElementById('exampleFormControlTextarea1');
+    text.select();
+    text.setSelectionRange(0,999);
+    navigator.clipboard.writeText(text.value);
+  }
+  // Equal Space
+  let handleEqualSpaceText=()=>{
+    let newtext=text.split(/[ ]+/);
+    setText(newtext.join(" "));
+  }
 
   return (
     <>
@@ -56,39 +68,49 @@ function Textarea(props) {
         </div>
         <div className="mt-5 ">
           <button
-            className="btn fs-5 mx-3 bg-secondary text-white p-2 fw-bold custom-btn"
+            className="btn fs-5 mx-3 bg-primary text-white p-1"
             onClick={handlelowercase}
           >
             lower case
           </button>
           <button
-            className="btn fs-5 mx-3 bg-secondary text-white p-2 fw-bold custom-btn"
+            className="btn fs-5 mx-3 bg-primary text-white p-1"
             onClick={handleUPPERCASE}
           >
             UPPER CASE
           </button>
           <button
-            className="btn mx-3 fs-5 bg-secondary text-white p-2 fw-bold custom-btn"
+            className="btn mx-3 fs-5 bg-primary text-white p-1"
             onClick={handleCapitilazedCase}
           >
             Capitalized Case
           </button>
           <button
-            className="btn mx-3 fs-5 bg-secondary text-white p-2 fw-bold custom-btn"
+            className="btn mx-3 fs-5 bg-primary text-white p-1"
             onClick={handleClearText}
           >
             Clear Text
+          </button>
+          <button
+            className="btn mx-3 fs-5 bg-primary text-white p-1"
+            onClick={handleCopyText}
+          >
+            Copy Text
+          </button>
+          <button
+            className="btn mx-3 fs-5 bg-primary text-white p-1"
+            onClick={handleEqualSpaceText}
+          >
+            Equal Space
           </button>
         </div>
         <div className="mt-5">
           <p className="fw-bold">
             <span>Character Count: {text.length} | </span>{" "}
-            <span>Word Count:{text.split("").length } | </span>
+            <span>Word Count:{text.split(" ").length-1} | </span>
             <span>Line Count: {text.split("\n").length-1}</span>
           </p>
         </div>
-        <h3 className="fw-bold text-danger ">Preview</h3>
-        <p>{text}</p>
       </div>
     </>
   );
