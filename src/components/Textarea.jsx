@@ -48,8 +48,8 @@ function Textarea(props) {
 
   return (
     <>
-      <div>
-        <div className="btn bg-light-subtle">
+      <div className="container text-center" style={{color:props.mode === 'dark' ? 'white':'black' }}>
+        <div className="">
           <div className="mt-5">
             <label
               htmlFor="exampleFormControlTextarea1"
@@ -58,10 +58,11 @@ function Textarea(props) {
               {props.Title}
             </label>
             <textarea
-              className="form-control bg-dark text-white"
+              className="form-control"
               id="exampleFormControlTextarea1"
-              rows="8"
+              rows="8" 
               onChange={handleonChange}
+              style={{backgroundColor:props.mode === 'dark' ? 'grey':'#eeeeee',color:props.mode==='dark'?'white':'black'  }}
               value={text}
             ></textarea>
           </div>
