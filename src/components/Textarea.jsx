@@ -6,10 +6,12 @@ function Textarea(props) {
   let handlelowercase = () => {
     let newtext = text.toLowerCase();
     setText(newtext);
+  
   };
 
   let handleUPPERCASE = () => {
     setText(text.toUpperCase());
+    
   };
 
   function capitalizeFirstLetter(sentence) {
@@ -18,11 +20,13 @@ function Textarea(props) {
       words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
     }
     return words.join(" ");
+
   }
 
   let handleCapitilazedCase = () => {
     let newtext = capitalizeFirstLetter(text);
     setText(newtext);
+    
   };
 
   let handleClearText = () => {
@@ -39,6 +43,7 @@ function Textarea(props) {
     text.select();
     text.setSelectionRange(0,999);
     navigator.clipboard.writeText(text.value);
+  
   }
   // Equal Space
   let handleEqualSpaceText=()=>{
